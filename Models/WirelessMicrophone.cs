@@ -11,11 +11,11 @@ public class WirelessMicrophone : TeachingDevice
     {
         if (batteryLevel < 0 || batteryLevel > 100)
         {
-            throw new ArgumentOutOfRangeException(nameof(batteryLevel), "Battery level must be between 0 and 100.");
+            throw new InvalidDeviceReadingException(id, batteryLevel);
         }
         if (signalQuality < 0 || signalQuality > 100)
         {
-            throw new ArgumentOutOfRangeException(nameof(signalQuality), "Signal quality must be between 0 and 100.");
+            throw new InvalidDeviceReadingException(id, signalQuality);
         }
         BatteryLevel = batteryLevel;
         SignalQuality = signalQuality;
@@ -24,7 +24,7 @@ public class WirelessMicrophone : TeachingDevice
     {
         if (newLevel < 0 || newLevel > 100)
         {
-            throw new ArgumentOutOfRangeException(nameof(newLevel), "Battery level must be between 0 and 100.");
+            throw new InvalidDeviceReadingException(Id, newLevel);
         }
         BatteryLevel = newLevel;
         CheckBatteryLevel();
@@ -33,7 +33,7 @@ public class WirelessMicrophone : TeachingDevice
     {
         if (newQuality < 0 || newQuality > 100)
         {
-            throw new ArgumentOutOfRangeException(nameof(newQuality), "Signal quality must be between 0 and 100.");
+            throw new InvalidDeviceReadingException(Id, newQuality);
         }
         SignalQuality = newQuality;
         CheckSignalQuality();

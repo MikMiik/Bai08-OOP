@@ -11,7 +11,7 @@ public class ProjectorRemote : TeachingDevice
     {
         if (batteryLevel < 0 || batteryLevel > 100)
         {
-            throw new ArgumentOutOfRangeException(nameof(batteryLevel), "Battery level must be between 0 and 100.");
+            throw new InvalidDeviceReadingException(id, batteryLevel);
         }
         BatteryLevel = batteryLevel;
     }
@@ -19,7 +19,7 @@ public class ProjectorRemote : TeachingDevice
     {
         if (newLevel < 0 || newLevel > 100)
         {
-            throw new ArgumentOutOfRangeException(nameof(newLevel), "Battery level must be between 0 and 100.");
+            throw new InvalidDeviceReadingException(Id, newLevel);
         }
         BatteryLevel = newLevel;
         CheckBatteryLevel();
