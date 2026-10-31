@@ -17,6 +17,10 @@ public class ProjectorRemote : TeachingDevice
     }
     public void UpdateBatteryLevel(int newLevel)
     {
+        if (newLevel < 0 || newLevel > 100)
+        {
+            throw new ArgumentOutOfRangeException(nameof(newLevel), "Battery level must be between 0 and 100.");
+        }
         BatteryLevel = newLevel;
         CheckBatteryLevel();
     }
