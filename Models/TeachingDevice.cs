@@ -9,6 +9,7 @@ public abstract class TeachingDevice
     public DeviceStatus Status { get; private set; }
     public event EventHandler<DeviceStatusChangedEventArgs>? StatusChanged;
     public event EventHandler<DeviceAlertEventArgs>? AlertRaised;
+
     protected TeachingDevice(string id, string name)
     {
         Id = id;
