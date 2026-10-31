@@ -11,5 +11,6 @@ public class DeviceAuditLogger
         entries.Add(
         $"{e.ChangedAt}: {e.DeviceId}, " +
         $"{e.OldStatus} -> {e.NewStatus}");
+        Console.WriteLine($"Status changed: {e.ChangedAt}: {e.DeviceId}, {e.OldStatus} -> {e.NewStatus}");
     }
 }
